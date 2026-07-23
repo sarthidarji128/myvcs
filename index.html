@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myvcs – Minimal Local Version Control System</title>
+    <style>
+        body {font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 2rem auto; padding: 0 1rem; color: #222;}
+        h1, h2 {color: #111;}
+        code {background:#f4f4f4; padding:0.2em 0.4em; border-radius:3px;}
+        pre {background:#f9f9f9; padding:1rem; overflow:auto; border-radius:4px;}
+        .footer {margin-top:3rem; font-size:0.9rem; color:#555;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>myvcs</h1>
+        <p>A Minimal Local Version Control System</p>
+    </header>
+
+    <section>
+        <h2>What it Solves</h2>
+        <p>Traditional VCS tools like Git often need network access for cloning, pushing, pulling, or remote tracking. <strong>myvcs</strong> works completely offline—ideal for air‑gapped machines, unreliable connections, or local‑only projects.</p>
+    </section>
+
+    <section>
+        <h2>Key Features</h2>
+        <ul>
+            <li>Project setup & management (register, switch, list, remove)</li>
+            <li>Initialize a <code>.myvcs/</code> repository in any directory</li>
+            <li>Commit snapshots with messages</li>
+            <li>View commit log</li>
+            <li>Status, diff, and revert commands</li>
+            <li>Efficient object storage using SHA‑1 hashes</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Quick Start</h2>
+        <pre><code># Clone
+git clone https://github.com/sarthidarji128/myvcs.git
+cd myvcs
+
+# Make script executable (if needed)
+chmod +x myvcs.sh
+
+# Initialise your first project
+./myvcs.sh setup myproject /path/to/your/project
+
+# Basic workflow
+./myvcs.sh use myproject
+# edit files …
+./myvcs.sh status
+./myvcs.sh diff my_file.txt
+./myvcs.sh commit "Describe changes"
+./myvcs.sh log
+./myvcs.sh revert c1   # revert to a previous commit
+</code></pre>
+    </section>
+
+    <section>
+        <h2>Project Structure</h2>
+        <ul>
+            <li><code>myvcs.py</code> – core Python engine</li>
+            <li><code>myvcs.sh</code> – Bash CLI wrapper</li>
+            <li><code>.myvcs_config.json</code> – generated project registry</li>
+            <li><code>.myvcs/</code> – per‑project repo (objects/, commits.json)</li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 <strong>Sarthi</strong> – Author of <em>myvcs</em>.</p>
+        <p>Deployed on <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a>.</p>
+    </footer>
+</body>
+</html>
